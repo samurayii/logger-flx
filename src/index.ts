@@ -69,8 +69,26 @@ export class Logger extends EventEmitter implements ILogger {
 
             const now = new Date();
 
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            let txt_hours = `${hours}`;
+            let txt_minutes = `${minutes}`;
+            let txt_seconds = `${seconds}`;
+
+            if (hours < 10) {
+                txt_hours = `0${hours}`;
+            }
+            if (minutes < 10) {
+                txt_minutes = `0${minutes}`;
+            }
+            if (seconds < 10) {
+                txt_seconds = `0${seconds}`;
+            }
+
             if (this._config.timestamp === "time") {
-                total_message = `[${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] ${total_message}`;
+                total_message = `[${txt_hours}:${txt_minutes}:${txt_seconds}] ${total_message}`;
             }
 
             if (this._config.timestamp === "full") {
