@@ -57,11 +57,11 @@ export class Logger extends EventEmitter implements ILogger {
 
         if (this._config.type === true) {
             if (type === "info") {
-                total_message = `${chalk.cyan("ℹ [INFO]")} ${total_message}`;
+                total_message = `${chalk.cyan("[INFO]")} ${total_message}`;
             } else if (type === "error") {
-                total_message = `${chalk.red("✖ [ERROR]")} ${total_message}`;
+                total_message = `${chalk.red("[ERROR]")} ${total_message}`;
             } else if (type === "warning") {
-                total_message = `${chalk.yellow("⚠ [WARNING]")} ${total_message}`;
+                total_message = `${chalk.yellow("[WARNING]")} ${total_message}`;
             }
         }
 
