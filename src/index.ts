@@ -107,7 +107,7 @@ export class Logger extends EventEmitter implements ILogger {
                     txt_date = `0${txt_date}`;
                 }
 
-                total_message = `[${txt_date}.${txt_month}.${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}] ${total_message}`;
+                total_message = `[${txt_date}.${txt_month}.${now.getFullYear()} ${txt_hours}:${txt_minutes}:${txt_seconds}] ${total_message}`;
             }
 
         }
