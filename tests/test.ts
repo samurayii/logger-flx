@@ -13,6 +13,9 @@ full_logger.once( "message", (message, type, mode) => {
     console.log(message, type, mode);
 });
 
+console.log(full_logger.enable);
+console.log(full_logger.mode);
+
 full_logger.log("log prod");
 full_logger.info("info prod");
 full_logger.warn("warn prod");

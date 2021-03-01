@@ -38,6 +38,10 @@ export class Logger extends EventEmitter implements ILogger {
         return this._config.mode;
     }
 
+    get enable (): boolean {
+        return this._config.enable;
+    }
+
     private _print (message: unknown, type: string, mode: string, error: boolean = false): void {
 
         this.emit("message", message, type, mode);
