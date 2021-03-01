@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 
 export interface ILogger extends EventEmitter {
+    readonly mode: string
     log: (message: unknown, mode?: string) => void
     info: (message: unknown, mode?: string) => void
     error: (message: unknown, mode?: string) => void
