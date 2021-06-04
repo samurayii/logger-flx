@@ -1,15 +1,15 @@
 {
     "name": "logger-flx",
-    "version": "0.3.5",
+    "version": "0.4.5",
     "description": "Flexible logger",
     "main": "index.js",
     "scripts": {
-        "up": "ncu && ncu -u && rimraf ./package-lock.json && npm i",
+        "up": "ncu && ncu -u && rimraf ./package-lock.json && npm i && ncu",
         "ncu": "ncu",
         "pub": "npm run build && npm publish ./dist",
         "build": "rimraf ./dist && npm run lint && tsc && json-key-remover && files-copier -e build",
         "lint": "eslint \"./src/**/*.{js,ts}\" --quiet --fix && tsc --noEmit",
-        "test": "ts-node ./tests/test.ts"
+        "test": "mocha -r ts-node/register --config ./tests/mocha.unit.config.json"
     },
     "repository": {
         "type": "git",
@@ -27,16 +27,19 @@
     "homepage": "https://github.com/samurayii/logger-flx.git#readme",
     "devDependencies": {
         "@types/chalk": "^2.2.0",
-        "@types/node": "^14.14.31",
-        "@typescript-eslint/eslint-plugin": "^4.15.2",
-        "@typescript-eslint/parser": "^4.15.2",
-        "eslint": "^7.21.0",
+        "@types/dateformat": "^3.0.1",
+        "@types/mocha": "^8.2.2",
+        "@types/node": "^15.12.1",
+        "@typescript-eslint/eslint-plugin": "^4.26.0",
+        "@typescript-eslint/parser": "^4.26.0",
+        "eslint": "^7.27.0",
         "files-copier": "^0.1.1",
         "json-key-remover": "^0.0.3",
-        "npm-check-updates": "^11.1.9",
+        "mocha": "^8.4.0",
+        "npm-check-updates": "^11.6.0",
         "rimraf": "^3.0.2",
-        "ts-node": "^9.1.1",
-        "typescript": "^4.2.2"
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.2"
     },
     "remover": {
         "target": "./package.json",
@@ -63,6 +66,7 @@
         }
     },
     "dependencies": {
-        "chalk": "^4.1.0"
+        "chalk": "^4.1.1",
+        "dateformat": "^4.5.1"
     }
 }

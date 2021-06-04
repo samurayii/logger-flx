@@ -1,17 +1,28 @@
 import { EventEmitter } from "events";
 
-export interface ILogger extends EventEmitter {
-    readonly mode: string
-    readonly enable: boolean
-    log: (message: unknown, mode?: string) => void
-    info: (message: unknown, mode?: string) => void
-    error: (message: unknown, mode?: string) => void
-    warn: (message: unknown, mode?: string) => void
+export interface ILoggerFLX extends EventEmitter {
+    readonly name: string
+    log: (...messages: string[]) => void
+    error: (...messages: string[]) => void
+    warn: (...messages: string[]) => void
+    debug: (...messages: string[]) => void
+    critical: (...messages: string[]) => void
 }
 
-export interface ILoggerConfig {
-    mode: string
-    enable: boolean
-    timestamp: string
-    type: boolean
+export type TLoggerFLXConfigLevels = "critical" | "log" | "error" | "warn" | "debug" | "all"
+export type TLoggerFLXConfigOutputTimestamp = "full" | "short" | "unix" | "none"
+export type TLoggerFLXConfigOutputLevels = "critical" | "log" | "error" | "warn" | "debug" | "all"
+export type TLoggerFLXConfigOutputBindings = "square" | "bracket" | "none"
+
+export interface ILoggerFLXConfig {
+    name: string
+    levels: Array<TLoggerFLXConfigLevels>
+    bindings: {
+        [key: string]: string
+    }
+    output: {
+        timestamp: TLoggerFLXConfigOutputTimestamp
+        levels: Array<TLoggerFLXConfigOutputLevels>
+        bindings: TLoggerFLXConfigOutputBindings
+    }
 }
