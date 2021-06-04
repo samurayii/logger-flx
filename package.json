@@ -1,6 +1,6 @@
 {
     "name": "logger-flx",
-    "version": "0.4.5",
+    "version": "0.5.5",
     "description": "Flexible logger",
     "main": "index.js",
     "scripts": {
@@ -27,6 +27,7 @@
     "homepage": "https://github.com/samurayii/logger-flx.git#readme",
     "devDependencies": {
         "@types/chalk": "^2.2.0",
+        "@types/clone": "^2.1.0",
         "@types/dateformat": "^3.0.1",
         "@types/mocha": "^8.2.2",
         "@types/node": "^15.12.1",
@@ -67,6 +68,7 @@
     },
     "dependencies": {
         "chalk": "^4.1.1",
+        "clone": "^2.1.2",
         "dateformat": "^4.5.1"
     }
 }

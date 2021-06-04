@@ -1,5 +1,6 @@
 import * as chalk from "chalk";
 import * as dateFormat from "dateformat";
+import * as clone from "clone";
 import { EventEmitter } from "events";
 import { ILoggerFLX, ILoggerFLXConfig, TLoggerFLXConfigLevels } from "./interfaces";
 
@@ -150,6 +151,19 @@ export class LoggerFLX extends EventEmitter implements ILoggerFLX {
             return;
         }
         this._print("critical", "error", messages);
+    }
+
+    child (name: string = "", bindings: {[key: string]: string} = {}): ILoggerFLX {
+
+        const config: ILoggerFLXConfig = clone(this._config);
+
+        config.name = name;
+        config.bindings = {
+            ...config.bindings,
+            ...bindings
+        };
+
+        return new LoggerFLX(config);
     }
 
     private _getTime (): string {

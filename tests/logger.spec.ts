@@ -224,5 +224,36 @@ describe("LoggerFLX", function() {
 
     });
 
+    it("child", function() {
+
+        const config = {
+            name: "logger",
+            levels: <TLoggerFLXConfigLevels[]>["critical", "log", "error", "warn", "debug"],
+            bindings: {
+                key1: "key1-val",
+                key2: "key2-val"
+            },
+            output: {
+                timestamp: <TLoggerFLXConfigOutputTimestamp>"short",
+                levels: <TLoggerFLXConfigOutputLevels[]>["critical", "log", "error", "warn", "debug"],
+                bindings: <TLoggerFLXConfigOutputBindings>"bracket"
+            }
+        };
+        
+        
+        const logger = new LoggerFLX(config);
+        const logger_new = logger.child("new-logger", {
+            key2: "key2-val-new",
+            key3: "key3-val-new"
+        });
+        
+        logger_new.error("error message");
+        logger_new.log("log message");
+        logger_new.critical("critical message");
+        logger_new.warn("warn message");
+        logger_new.debug("debug message");
+
+    });
+
 });
 
