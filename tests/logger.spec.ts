@@ -143,6 +143,33 @@ describe("LoggerFLX", function() {
 
     });
 
+    it("none time", function() {
+
+        const config = {
+            name: "logger",
+            levels: <TLoggerFLXConfigLevels[]>["critical", "log", "error", "warn", "debug"],
+            bindings: {
+                key1: "key1-val",
+                key2: "key2-val"
+            },
+            output: {
+                timestamp: <TLoggerFLXConfigOutputTimestamp>"none",
+                levels: <TLoggerFLXConfigOutputLevels[]>["critical", "log", "error", "warn", "debug"],
+                bindings: <TLoggerFLXConfigOutputBindings>"square"
+            }
+        };
+        
+        
+        const logger = new LoggerFLX(config);
+        
+        logger.error("error message");
+        logger.log("log message");
+        logger.critical("critical message");
+        logger.warn("warn message");
+        logger.debug("debug message");
+
+    });
+
     it("binding none", function() {
 
         const config = {
