@@ -88,7 +88,7 @@ export class LoggerFLX extends EventEmitter implements ILoggerFLX {
             this._name_cache = `(${this._config.name}): `;
         }
 
-        if (this._config.output.bindings !== "none") {
+        if (this._config.output.bindings !== "none" && Object.keys(this._config.bindings).length > 0) {
             
             const entries = Object.entries(this._config.bindings);
             const entries_str = [];
