@@ -32,6 +32,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -39,14 +40,14 @@ describe("LoggerFLX", function() {
 
         const config = {
             name: "logger",
-            levels: <TLoggerFLXConfigLevels[]>["all"],
+            levels: <TLoggerFLXConfigLevels[]>["critical", "log", "error", "warn", "debug", "verbose"],
             bindings: {
                 key1: "key1-val",
                 key2: "key2-val"
             },
             output: {
                 timestamp: <TLoggerFLXConfigOutputTimestamp>"full",
-                levels: <TLoggerFLXConfigOutputLevels[]>["all"],
+                levels: <TLoggerFLXConfigOutputLevels[]>["critical", "log", "error", "warn", "debug", "verbose"],
                 bindings: <TLoggerFLXConfigOutputBindings>"square"
             }
         };
@@ -59,6 +60,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -73,7 +75,7 @@ describe("LoggerFLX", function() {
             },
             output: {
                 timestamp: <TLoggerFLXConfigOutputTimestamp>"full",
-                levels: <TLoggerFLXConfigOutputLevels[]>["all"],
+                levels: <TLoggerFLXConfigOutputLevels[]>["critical", "log", "error", "warn", "debug", "verbose"],
                 bindings: <TLoggerFLXConfigOutputBindings>"square"
             }
         };
@@ -86,6 +88,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -113,6 +116,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -140,6 +144,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -167,6 +172,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -194,6 +200,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -221,6 +228,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -248,6 +256,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -262,7 +271,7 @@ describe("LoggerFLX", function() {
             },
             output: {
                 timestamp: <TLoggerFLXConfigOutputTimestamp>"short",
-                levels: <TLoggerFLXConfigOutputLevels[]>["all"],
+                levels: <TLoggerFLXConfigOutputLevels[]>["critical", "log", "error", "warn", "debug", "verbose"],
                 bindings: <TLoggerFLXConfigOutputBindings>"square"
             }
         };
@@ -275,6 +284,7 @@ describe("LoggerFLX", function() {
         logger.critical("critical message");
         logger.warn("warn message");
         logger.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 
@@ -306,6 +316,7 @@ describe("LoggerFLX", function() {
         logger_new.critical("critical message");
         logger_new.warn("warn message");
         logger_new.debug("debug message");
+        logger.verbose("verbose message");
 
     });
 

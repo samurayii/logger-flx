@@ -27,50 +27,30 @@ export class LoggerFLX extends EventEmitter implements ILoggerFLX {
 
         super();
 
-        if (this._config.levels.includes("all") === true) {
-            this._levels_print_enable = {
-                critical: true,
-                error: true,
-                log: true,
-                debug: true,
-                warn: true
-            };
-        } else {
-            this._levels_print_enable = {
-                critical: false,
-                error: false,
-                log: false,
-                debug: false,
-                warn: false
-            };
+        this._levels_print_enable = {
+            critical: false,
+            error: false,
+            log: false,
+            debug: false,
+            warn: false,
+            verbose: false
+        };
 
-            for (const type_name of this._config.levels) {
-                this._levels_print_enable[type_name] = true;
-            } 
+        this._levels_show_enable = {
+            critical: false,
+            error: false,
+            log: false,
+            debug: false,
+            warn: false,
+            verbose: false
+        };
 
+        for (const type_name of this._config.output.levels) {
+            this._levels_show_enable[type_name] = true;
         }
-
-        if (this._config.output.levels.includes("all") === true) {
-            this._levels_show_enable = {
-                critical: true,
-                error: true,
-                log: true,
-                debug: true,
-                warn: true
-            };
-        } else {
-            this._levels_show_enable = {
-                critical: false,
-                error: false,
-                log: false,
-                debug: false,
-                warn: false
-            };
-
-            for (const type_name of this._config.output.levels) {
-                this._levels_show_enable[type_name] = true;
-            } 
-
+        
+        for (const type_name of this._config.levels) {
+            this._levels_print_enable[type_name] = true;
         }
 
         this._levels_string = {
@@ -78,7 +58,8 @@ export class LoggerFLX extends EventEmitter implements ILoggerFLX {
             error: chalk.red("ERROR"),
             log: chalk.green("INFO"),
             debug: chalk.cyan("DEBUG"),
-            warn: chalk.yellow("WARN")
+            warn: chalk.yellow("WARN"),
+            verbose: chalk.bgGreen("VERB"),
         };
 
         this._name_cache = "";
@@ -151,6 +132,14 @@ export class LoggerFLX extends EventEmitter implements ILoggerFLX {
             return;
         }
         this._print("critical", "error", messages);
+    }
+
+    verbose (...messages: string[]): void {
+        this.emit("message", "verbose", this._config.name, messages);
+        if (this._levels_print_enable.verbose === false) {
+            return;
+        }
+        this._print("verbose", "log", messages);
     }
 
     child (name: string = "", bindings: {[key: string]: string} = {}): ILoggerFLX {

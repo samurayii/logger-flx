@@ -1,6 +1,6 @@
 {
     "name": "logger-flx",
-    "version": "0.5.6",
+    "version": "0.6.6",
     "description": "Flexible logger",
     "main": "index.js",
     "scripts": {
