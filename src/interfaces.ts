@@ -8,7 +8,7 @@ export interface ILoggerFLX extends EventEmitter {
     debug: (...messages: string[]) => void
     critical: (...messages: string[]) => void
     verbose: (...messages: string[]) => void
-    child: (name: string, bindings: {[key: string]: string}) => ILoggerFLX
+    child: (name?: string, bindings?: {[key: string]: string}) => ILoggerFLX
 }
 
 export type TLoggerFLXConfigLevels = "critical" | "log" | "error" | "warn" | "debug" | "verbose"
