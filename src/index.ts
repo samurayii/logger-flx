@@ -54,12 +54,12 @@ export class LoggerFLX extends EventEmitter implements ILoggerFLX {
         }
 
         this._levels_string = {
-            critical: chalk.bgRed("CRITICAL"),
+            critical: chalk.bgRed(" CRITICAL "),
             error: chalk.red("ERROR"),
             log: chalk.green("INFO"),
             debug: chalk.cyan("DEBUG"),
             warn: chalk.yellow("WARN"),
-            verbose: chalk.bgGreen("VERB"),
+            verbose: chalk.bgGreen(" VERB "),
         };
 
         this._name_cache = "";
